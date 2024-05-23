@@ -1,0 +1,104 @@
+From 175484a2db50cedb4426f56750ddae0272de4588 Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@openrobotics.org>
+Date: Wed, 28 Sep 2022 22:04:05 -0400
+Subject: [PATCH] Make sure to include-what-you-use in the node_interfaces.
+
+from https://patch-diff.githubusercontent.com/raw/ros2/rclcpp/pull/2018.patch, adjust path.
+
+Signed-off-by: Chris Lalancette <clalancette@openrobotics.org>
+---
+ rclcpp/include/rclcpp/node_interfaces/node_base.hpp           | 2 +-
+ rclcpp/include/rclcpp/node_interfaces/node_base_interface.hpp | 4 ++--
+ rclcpp/include/rclcpp/node_interfaces/node_graph.hpp          | 2 ++
+ rclcpp/include/rclcpp/node_interfaces/node_parameters.hpp     | 3 ++-
+ .../rclcpp/node_interfaces/node_parameters_interface.hpp      | 2 +-
+ .../include/rclcpp/node_interfaces/node_topics_interface.hpp  | 2 --
+ 6 files changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/rclcpp/include/rclcpp/node_interfaces/node_base.hpp b/rclcpp/include/rclcpp/node_interfaces/node_base.hpp
+index 90011a26e0..a6c84e4aa0 100644
+--- a/include/rclcpp/node_interfaces/node_base.hpp
++++ b/include/rclcpp/node_interfaces/node_base.hpp
+@@ -15,7 +15,7 @@
+ #ifndef RCLCPP__NODE_INTERFACES__NODE_BASE_HPP_
+ #define RCLCPP__NODE_INTERFACES__NODE_BASE_HPP_
+ 
+-#include <functional>
++#include <atomic>
+ #include <memory>
+ #include <mutex>
+ #include <string>
+diff --git a/rclcpp/include/rclcpp/node_interfaces/node_base_interface.hpp b/rclcpp/include/rclcpp/node_interfaces/node_base_interface.hpp
+index b0f8fbd65e..2e94b80d9c 100644
+--- a/include/rclcpp/node_interfaces/node_base_interface.hpp
++++ b/include/rclcpp/node_interfaces/node_base_interface.hpp
+@@ -15,10 +15,10 @@
+ #ifndef RCLCPP__NODE_INTERFACES__NODE_BASE_INTERFACE_HPP_
+ #define RCLCPP__NODE_INTERFACES__NODE_BASE_INTERFACE_HPP_
+ 
++#include <atomic>
++#include <functional>
+ #include <memory>
+-#include <mutex>
+ #include <string>
+-#include <vector>
+ 
+ #include "rcl/node.h"
+ 
+diff --git a/rclcpp/include/rclcpp/node_interfaces/node_graph.hpp b/rclcpp/include/rclcpp/node_interfaces/node_graph.hpp
+index 794038d386..d167515784 100644
+--- a/include/rclcpp/node_interfaces/node_graph.hpp
++++ b/include/rclcpp/node_interfaces/node_graph.hpp
+@@ -15,7 +15,9 @@
+ #ifndef RCLCPP__NODE_INTERFACES__NODE_GRAPH_HPP_
+ #define RCLCPP__NODE_INTERFACES__NODE_GRAPH_HPP_
+ 
++#include <atomic>
+ #include <chrono>
++#include <condition_variable>
+ #include <map>
+ #include <memory>
+ #include <mutex>
+diff --git a/rclcpp/include/rclcpp/node_interfaces/node_parameters.hpp b/rclcpp/include/rclcpp/node_interfaces/node_parameters.hpp
+index eda68451a9..ffbb400c11 100644
+--- a/include/rclcpp/node_interfaces/node_parameters.hpp
++++ b/include/rclcpp/node_interfaces/node_parameters.hpp
+@@ -15,9 +15,10 @@
+ #ifndef RCLCPP__NODE_INTERFACES__NODE_PARAMETERS_HPP_
+ #define RCLCPP__NODE_INTERFACES__NODE_PARAMETERS_HPP_
+ 
++#include <list>
+ #include <map>
+ #include <memory>
+-#include <list>
++#include <mutex>
+ #include <string>
+ #include <vector>
+ 
+diff --git a/rclcpp/include/rclcpp/node_interfaces/node_parameters_interface.hpp b/rclcpp/include/rclcpp/node_interfaces/node_parameters_interface.hpp
+index 104e00327a..3156668a73 100644
+--- a/include/rclcpp/node_interfaces/node_parameters_interface.hpp
++++ b/include/rclcpp/node_interfaces/node_parameters_interface.hpp
+@@ -15,8 +15,8 @@
+ #ifndef RCLCPP__NODE_INTERFACES__NODE_PARAMETERS_INTERFACE_HPP_
+ #define RCLCPP__NODE_INTERFACES__NODE_PARAMETERS_INTERFACE_HPP_
+ 
++#include <functional>
+ #include <map>
+-#include <memory>
+ #include <string>
+ #include <vector>
+ 
+diff --git a/rclcpp/include/rclcpp/node_interfaces/node_topics_interface.hpp b/rclcpp/include/rclcpp/node_interfaces/node_topics_interface.hpp
+index ca69e86e73..7aa40a3d5e 100644
+--- a/include/rclcpp/node_interfaces/node_topics_interface.hpp
++++ b/include/rclcpp/node_interfaces/node_topics_interface.hpp
+@@ -15,8 +15,6 @@
+ #ifndef RCLCPP__NODE_INTERFACES__NODE_TOPICS_INTERFACE_HPP_
+ #define RCLCPP__NODE_INTERFACES__NODE_TOPICS_INTERFACE_HPP_
+ 
+-#include <functional>
+-#include <memory>
+ #include <string>
+ 
+ #include "rcl/publisher.h"
