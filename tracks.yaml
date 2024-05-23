@@ -190,7 +190,7 @@ tracks:
     name: rclcpp
     patches: null
     release_inc: '1'
-    release_repo_url: https://github.com/ros2-gbp/rclcpp-release.git
+    release_repo_url: git@github.com:revyos-ros/rclcpp-release.git
     release_tag: :{version}
     ros_distro: humble
     vcs_type: git
