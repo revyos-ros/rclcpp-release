@@ -1,3 +1,30 @@
+## rclcpp (jazzy) - 28.1.5-1
+
+The packages in the `rclcpp` repository were released into the `jazzy` distro by running `/home/z572/gits/revyos-ros/venv2/bin/bloom-release -r jazzy rclcpp --override-release-repository-push-url git@github.com:revyos-ros/rclcpp-release.git` on `Fri, 27 Sep 2024 05:14:26 -0000`
+
+These packages were released:
+- `rclcpp`
+- `rclcpp_action`
+- `rclcpp_components`
+- `rclcpp_lifecycle`
+
+Version of package(s) in repository `rclcpp`:
+
+- upstream repository: https://github.com/ros2/rclcpp.git
+- release repository: https://github.com/revyos-ros/rclcpp-release.git
+- rosdistro version: `28.1.5-1`
+- old version: `28.1.4-1`
+- new version: `28.1.5-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## rclcpp (humble) - 16.0.10-1
 
 The packages in the `rclcpp` repository were released into the `humble` distro by running `/home/z572/gits/revyos-ros/venv/bin/bloom-release -r humble rclcpp --override-release-repository-push-url git@github.com:revyos-ros/rclcpp-release.git` on `Mon, 23 Sep 2024 04:42:43 -0000`
