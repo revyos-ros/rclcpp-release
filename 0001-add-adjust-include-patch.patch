@@ -1,4 +1,4 @@
-From 1aa96e631428441c1dc50809e8a4ee126010af0d Mon Sep 17 00:00:00 2001
+From 39678aefe814a05dcebb48621819b2377fdea1fe Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Thu, 23 May 2024 14:43:14 +0800
 Subject: [PATCH] add adjust-include patch.
