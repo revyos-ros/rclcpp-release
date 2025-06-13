@@ -3,6 +3,29 @@ Changelog for package rclcpp_action
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+28.1.9 (2025-04-23)
+-------------------
+* fix(rclcpp_action): Fix sleep of expire thread in case of canceled timer (`#2800 <https://github.com/ros2/rclcpp/issues/2800>`_)
+  This fixes a bug, that the expire action thread would not sleep as,
+  the sleep duration was not computed correctly.
+  Co-authored-by: Janosch Machowinski <J.Machowinski@cellumation.com>
+* Contributors: Janosch Machowinski
+
+28.1.8 (2025-04-02)
+-------------------
+* Harden rclcpp_action::convert(). (`#2786 <https://github.com/ros2/rclcpp/issues/2786>`_) (`#2789 <https://github.com/ros2/rclcpp/issues/2789>`_)
+  * Harden rclcpp_action::convert().
+  * update docstring.
+  ---------
+  (cherry picked from commit ce86ef7e621d96ce50d6ec1b49e9e1cd4f0a828b)
+  Co-authored-by: Tomoya Fujita <Tomoya.Fujita@sony.com>
+* Contributors: mergify[bot]
+
+28.1.7 (2025-03-26)
+-------------------
+* fix: Fixed expiring of goals if events executor is used (`#2674 <https://github.com/ros2/rclcpp/issues/2674>`_)
+* Contributors: Janosch Machowinski
+
 28.1.6 (2024-12-18)
 -------------------
 
