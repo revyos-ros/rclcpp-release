@@ -2,6 +2,17 @@
 Changelog for package rclcpp_components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+28.1.9 (2025-04-23)
+-------------------
+
+28.1.8 (2025-04-02)
+-------------------
+
+28.1.7 (2025-03-26)
+-------------------
+* add NO_UNDEFINED_SYMBOLS to rclcpp_components_register_node cmake macro (`#2746 <https://github.com/ros2/rclcpp/issues/2746>`_)
+* Contributors: Jonas Otto
+
 28.1.6 (2024-12-18)
 -------------------
 
