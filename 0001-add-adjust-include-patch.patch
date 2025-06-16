@@ -1,4 +1,4 @@
-From 39678aefe814a05dcebb48621819b2377fdea1fe Mon Sep 17 00:00:00 2001
+From 7ce86ca16cad768ab3de8e7be9b646ff540f65d4 Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Thu, 23 May 2024 14:43:14 +0800
 Subject: [PATCH] add adjust-include patch.
@@ -129,5 +129,5 @@ index 00000000..277b1cb9
 @@ -0,0 +1 @@
 +adjust-include.patch
 -- 
-2.46.0
+2.41.0
 
