@@ -34,27 +34,17 @@ using GoalUUID = std::array<uint8_t, UUID_SIZE>;
 using GoalStatus = action_msgs::msg::GoalStatus;
 using GoalInfo = action_msgs::msg::GoalInfo;
 
-/// Convert a goal id to a human readable RFC-4122 compliant string.
+/// Convert a goal id to a human readable string.
 RCLCPP_ACTION_PUBLIC
 std::string
 to_string(const GoalUUID & goal_id);
 
-/// Convert C++ GoalID to rcl_action_goal_info_t
-/**
- * \param[in] goal_id C++ GoalUUID reference to be converted.
- * \param[inout] info rcl_action_goal_info_t structure to be filled.
- * \throws std::runtime_error if info is null.
- */
+// Convert C++ GoalID to rcl_action_goal_info_t
 RCLCPP_ACTION_PUBLIC
 void
 convert(const GoalUUID & goal_id, rcl_action_goal_info_t * info);
 
-/// Convert rcl_action_goal_info_t to C++ GoalID
-/**
- * \param[in] info rcl_action_goal_info_t reference to be converted.
- * \param[inout] goal_id C++ GoalUUID structure to be filled.
- * \throws std::runtime_error if goal_id is null.
- */
+// Convert rcl_action_goal_info_t to C++ GoalID
 RCLCPP_ACTION_PUBLIC
 void
 convert(const rcl_action_goal_info_t & info, GoalUUID * goal_id);
@@ -79,13 +69,14 @@ struct hash<rclcpp_action::GoalUUID>
 {
   size_t operator()(const rclcpp_action::GoalUUID & uuid) const noexcept
   {
-    // Using the FNV-1a hash algorithm
-    constexpr size_t FNV_prime = 1099511628211u;
-    size_t result = 14695981039346656037u;
-
-    for (const auto & byte : uuid) {
-      result ^= byte;
-      result *= FNV_prime;
+    // TODO(sloretz) Use someone else's hash function and cite it
+    size_t result = 0;
+    for (size_t i = 0; i < uuid.size(); ++i) {
+      for (size_t b = 0; b < sizeof(size_t); ++b) {
+        size_t part = uuid[i];
+        part <<= CHAR_BIT * b;
+        result ^= part;
+      }
     }
     return result;
   }
